@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            user-select: none;
+        }
+        body {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            color: #FFF;
+            font-family: 'Roboto', sans-serif;
+        }
+        .content-wrapper {
+            max-width: 75rem;
+            width: 100%;
+            height: 100%;
+            margin: 0 auto;
+            padding: 0 .94rem;
+            background-color: #C0DBD9;
+        }
+        header, footer {
+            position: relative;
+            background-color: #7FAFF6;
+            width: 100%;
+            height: 10vh;
+        }
+        footer {
+            margin-top: 6.25rem;
+        }
+        .grid-block  {
+            position: relative;
+            display: flex;
+            width: 100%;
+            margin-top: .94rem;
+        }
+        .grid-block__top {
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-content: space-between;
+            height: 25.69rem;
+            background-color: #B3F95A;
+        }
+        .grid-block__bottom {
+            justify-content: space-between;
+            align-items: center;
+            height: 16.19rem;
+            padding: 0 1.9rem;
+            background-color: #88B5BF;
+        }
+        .popup-btn {
+            position: absolute;
+            top: 50%;
+            left: 2.56%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 2.43rem;
+            margin-top: -1.21rem;
+            padding: 0 15px;
+            border-radius: 5px;
+            font-size: 1rem;
+            background-color: #A5C7F9;
+            cursor: pointer;
+        }
+        .grid-block-item {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 12.4rem;
+            font-size: 3.32rem;
+        }
+        .grid-block__top > .grid-block-item:first-child {
+            width: 33.4%;
+        }
+        .grid-block__top > .grid-block-item:nth-child(2) {
+            width: 50.44%;
+        }
+        .grid-block__top > .grid-block-item:nth-child(3), .grid-block__top > .grid-block-item:nth-child(5) {
+            width: 13.7%;
+        }
+        .grid-block__top > .grid-block-item:nth-child(4) {
+            width: 85.1%;
+        }
+        .n1:after {
+            content: '1';
+        }
+        .n2:after {
+            content: '2';
+        }
+        .n3:after {
+            content: '3';
+        }
+        .n4:after {
+            content: '4';
+        }
+        .n5:after {
+            content: '5';
+        }
+        .grid-block__bottom .grid-block-item {
+            width: 23.1%;
+        }
+        .grid-block-item__green {
+            background: #8AD191;
+        }
+        .grid-block-item__blue {
+            background: #0D89B0;
+        }
+        .popup-layer {
+            position: fixed;
+            top: 0;
+            left: 50%;
+            width: 25rem;
+            height: 25rem;
+            margin: -12.25rem 0 0 -12.25rem;
+            background: #FFF;
+            visibility: hidden;
+            z-index: 2;
+        }
+        .popup-layer:after {
+            content: '';
+        }
+        #popup-trigger {
+            display: none;
+        }
+        #popup-trigger:checked ~ .popup-layer {
+            visibility: visible;
+            top: 50%;
+            transition: top .4s ease;
+        }
+        #popup-trigger:checked ~ .shadow-layer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: black;
+            opacity: .4;
+            z-index: 1;
+        }
+        .popup-close-btn {
+            position: relative;
+            float: right;
+            display: inline-block;
+            width: 43px;
+            height: 43px;
+            background-color: #7FAFF6;
+            cursor: pointer;
+        }
+        .popup-close-btn:after {
+            content: 'X';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 20px;
+            height: 20px;
+            font-size: 20px;
+            margin: -10px 0 0 -10px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+<div class="content-wrapper">
+    <header>
+        <input type="checkbox" id="popup-trigger">
+        <label class="popup-btn" for="popup-trigger">Open pop-up button</label>
+        <div class="popup-layer">
+            <label class="popup-close-btn" for="popup-trigger">
+        </div>
+        <div class="shadow-layer"></div>
+    </header>
+    <section class="grid-block grid-block__top">
+        <div class="grid-block-item grid-block-item__green n1"></div>
+        <div class="grid-block-item grid-block-item__green n2"></div>
+        <div class="grid-block-item grid-block-item__green n3"></div>
+        <div class="grid-block-item grid-block-item__green n4"></div>
+        <div class="grid-block-item grid-block-item__green n5"></div>
+    </section>
+    <section class="grid-block grid-block__bottom">
+        <div class="grid-block-item grid-block-item__blue"></div>
+        <div class="grid-block-item grid-block-item__blue"></div>
+        <div class="grid-block-item grid-block-item__blue"></div>
+        <div class="grid-block-item grid-block-item__blue"></div>
+    </section>
+    <footer></footer>
+</div>
+</body>
+</html>
